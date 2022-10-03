@@ -7,11 +7,17 @@ export default class SearchBar extends Component {
       input: e.target.value,
     });
   };
+  handleSubmit = (event) => {
+    event.preventDefault();
+  };
 
   render() {
     return (
       <div>
-        <form style={{ border: "1px solid ", padding: "10px", margin: "10px" }}>
+        <form
+          style={{ border: "1px solid ", padding: "10px", margin: "10px" }}
+          onSubmit={this.handleSubmit}
+        >
           <label> Search For Image:</label>
           <br />
           <input
