@@ -1,6 +1,7 @@
 import SearchBar from "./component/SearchBar";
 import axios from "axios";
 import React, { Component } from "react";
+import { ImageList } from "./component/ImageList";
 
 export default class App extends Component {
   state = { image: [] };
@@ -11,13 +12,13 @@ export default class App extends Component {
         Authorization: "Client-ID MX32KIhRmXMLgpue-cDsexGa88b6AoHg9vfTPobQPOM",
       },
     });
-    this.setState({ image: response.data.image });
+    this.setState({ image: response.data.results });
   };
   render() {
     return (
       <div className="App">
         <SearchBar onSubmit={this.onSearchSubmit} />
-        found {this.images.length} images
+        <ImageList image={this.state.image} />
       </div>
     );
   }
